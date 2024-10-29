@@ -6,7 +6,7 @@ import { resolve } from "node:path";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "Llue-Square-Legion.github.io",
+  site: "https://Blue-Square-Legion.github.io",
   // Commented out base due to note at: https://docs.astro.build/en/guides/deploy/github/#base
   // base: "Blue-Square-Legion.github.io",
   integrations: [starlight({
