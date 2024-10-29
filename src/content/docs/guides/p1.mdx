@@ -1,0 +1,43 @@
+---
+title: P1 Guides
+articleGuides:
+    - name: Main Link
+      link: https://articles.p1games.com
+    - name: Creating a Team
+      link: https://articles.p1games.com/normal-operations/creating-your-own-team
+    - name: Shadow Teams
+      link: https://articles.p1games.com/advanced/shadow-teams
+    - name: Registration
+      link: https://articles.p1games.com/introduction/individual-team-registration
+      permalink: https://p1oc.net/igniteregister
+    - name: Contest Guidelines
+      link: https://articles.p1games.com/introduction/contest-guidelines
+    - name: Helpfulness
+      link: https://articles.p1games.com/introduction/helpfulness
+    - name: Giving Helpfulness
+      link: https://articles.p1games.com/normal-operations/how-to-give-someone-helpfulness-1
+    - name: Tiers and Ranks
+      link: https://articles.p1games.com/normal-operations/understanding-ranks-tiers
+    - name: Divisions and Legions
+      link: https://articles.p1games.com/normal-operations/teams-divisions-and-legions
+    - name: Team Daily Checklist
+      link: https://articles.p1games.com/normal-operations/team-registration-next-steps-guide
+      permalink: https://p1oc.net/nextsteps
+    - name: Introduction Giver Checklist
+      link: https://articles.p1games.com/volunteers/onboarding-checklist
+    - name: Integration Checklist
+      link: https://articles.p1games.com/volunteers/integration-checklist
+    - name: Legion Daily Checklist
+      link: https://articles.p1games.com/daily-meetings-type-two/legion-daily-checklist
+    - name: Main Link
+      link: https://articles.p1games.com
+---
+
+Link to articles for P1 Games Ignite
+<ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+    {frontmatter.articleGuides.map(guide => 
+        <li> 
+            <strong>{guide.permalink ? <a href={guide.permalink}> {guide.name}</a>: guide.name}</strong>: <a href={guide.link}>{guide.link}</a>
+        </li>
+    )}
+</ul>
