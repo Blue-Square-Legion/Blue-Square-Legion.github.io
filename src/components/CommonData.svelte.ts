@@ -157,25 +157,25 @@ const miscellaneousTools = [
 // AI Assited tools separation end
 
 const ROLE_TYPES = [
-  {name: "Producer (Scrum, Agile, Leadership)", tools: projectManagementTools},
+  {name: "Producer (Scrum, Agile, Leadership)", tools: projectManagementTools.concat(miscellaneousTools)},
   {name: "Artist (3D, 2D, UI, Technical, Procedural)", tools: twoDArtTools.concat( threeDArtTools)},
-  {name: "Marketer (SEO, Social Media, Content, Strategic)", tools: projectManagementTools},
+  {name: "Marketer (SEO, Social Media, Content, Strategic)", tools: projectManagementTools.concat(miscellaneousTools)},
   {name: "Sound Artist (Composition, Sound Effects, Foley, Mixing)", tools: audioDesignTools},
   {name: "Programmer (Gameplay, Engine, Tools, AI, Graphics)", tools: gameEngines.concat(programmingLanguages)},
   {name: "Animator (3D, 2D, Motion Capture, Rigging)", tools: animationSpecificTools},
   {name: "Designer (Gameplay, Level, UX, Narrative, Systems)", tools: projectManagementTools},
 ];
 
-const TIMEZONES = [
-  "Asia Pacific Morning",
-  "Asia Pacific Evening",
-  "EU Morning",
-  "EU Evening",
-  "US East Coast Morning",
-  "US East Coast Evening",
-  "US West Coast Morning",
-  "US West Coast Evening",
-]
+// const TIMEZONES = [
+//   "Asia Pacific Morning",
+//   "Asia Pacific Evening",
+//   "EU Morning",
+//   "EU Evening",
+//   "US East Coast Morning",
+//   "US East Coast Evening",
+//   "US West Coast Morning",
+//   "US West Coast Evening",
+// ]
 
 const NO_TEAM_PHASE = {name: "None Selected", help: "No current phase select"};
 
