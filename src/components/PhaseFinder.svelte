@@ -6,9 +6,11 @@
 <Button class=" bg-primary-500"
     >Current Team Phase: {teamPhase.currentPhase.name}
 </Button>
-<Dropdown class="w-60 p-3 space-y-1">
+<Dropdown class=" w-96 p-3 space-y-1">
     {#each { length: teamPhase.numberOfPhases } as _, index}
-        <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+        <li
+            class="rounded hover:bg-gray-100 dark:hover:bg-gray-600 grid grid-cols-2"
+        >
             <Radio
                 name="teamPhaseGroup"
                 bind:group="{teamPhase.phaseIndex}"
