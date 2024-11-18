@@ -2,7 +2,7 @@
     import { Textarea, Button } from "flowbite-svelte";
     let {
         text = "",
-        rows = 30,
+        rows = 25,
         placeholder = "Nothing here yet",
     }: { text: string; rows?: number; placeholder?: string } = $props();
     let textareaprops = {
