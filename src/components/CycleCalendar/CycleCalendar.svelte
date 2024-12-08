@@ -87,7 +87,7 @@
         isDev: boolean = true,
     ): string {
         // Fix off by one error due to JS starting on Sunday,
-        // but our calender starting on Monday
+        // but our calendar starting on Monday
         day = (day + 1) % 7;
         const { weekFromStart, dayFromStart, weekFromEnd, dayFromEnd } =
             getWeekDayOffset(week, day);
@@ -157,7 +157,7 @@
     onchange={updateURLParams}
 />
 
-<h2>Calender</h2>
+<h2>Calendar</h2>
 <!-- Plus one for header -->
 <div class=" grid grid-rows-{totalWeeks + 1}">
     <div class="grid grid-cols-8 justify-center">
