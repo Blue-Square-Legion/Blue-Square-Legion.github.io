@@ -1,0 +1,78 @@
+---
+title: Team Lead
+sidebar:
+  order: 30
+lists:
+  powers:
+    - "Decides overall vision of the game"
+    - "Decides what tasks are needed"
+    - "Determines what roles are needed"
+    - "Delegate specific tasks to people"
+    - "Has tie breaking vote"
+  responsibilities:
+    - "Make sure project is in scope"
+    - "Make sure people have tasks to work on"
+    - name: "Make sure team admistrative items are done properly:"
+      children:
+        - "Complete team registration"
+        - "Create and maintain team page on Discord"
+        - "Organize meetings"
+        - "Rotate introduction giving volunteer role"
+        - "Ensure submission forms are submitted at the end"
+        - "Ensure assets are properly uploaded"
+        - "Ensure game page and builds are correct"
+---
+
+import WhyNote from "@components/WhyNote.svelte";
+import MakeList from "@components/MakeList.svelte";
+
+## What is a Team Lead
+
+This is the leader of the team.
+They are the guiding hand of the project.
+**Every team must have exactly one leader.**
+
+### Electing
+
+A team lead is elected by a team by a simple majority (50%).
+Voting does not necessarily need to be formal, but every team member should know who their team lead is.
+
+If a majority (at least 60%) of team members feel like someone else would be a better leader,
+they may choose to replace the leader.
+This can also occur when team leader leaves.
+
+### Powers
+
+These are the main powers a team lead has:
+
+<MakeList tag="ul" data={frontmatter.lists.powers}/>
+
+<WhyNote summary="these powers?">
+  Leading a team is hard, so leaders are empowered to make executive decisions to make sure the project gets completed.
+</WhyNote>
+
+### Responsibilities
+
+> _"With great power comes great responsibility"_
+> 
+> -Uncle Ben from Spider-Man
+
+Here is what a team leader is responsible for:
+
+<MakeList tag="ul" data={frontmatter.lists.responsibilities}/>
+
+<WhyNote summary="these responsibilities?">
+  We are a volunteer group, so leader should try to make sure the project is achievable by the team.
+
+  Also, admistrative items must be done to participate within P1's Ignite cycle.
+</WhyNote>
+
+## Difference with Producer Role
+
+There is a lot of overlap between team lead and producer. 
+However, any role may choose to be a team lead.
+
+The main difference is in scope: a team lead manages the overall vision of the project,
+while a producer focuses more on the actual details (e.g., tasks, what is completed, meetings).
+Team lead may choose to lead certain meeting, while leaving other meetings for producers.
+
