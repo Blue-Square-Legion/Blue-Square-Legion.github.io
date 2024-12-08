@@ -1,0 +1,42 @@
+{
+    "1,4": {
+        "event": "First build check",
+        "devOnly": true
+    },
+    "2,2": {
+        "event": "Legion-wide Playtest 1",
+        "devOnly": true
+    },
+    "2,5": {
+        "event": "Legion-wide Playtest 2",
+        "devOnly": true
+    },
+    "3,1": {
+        "event": "Start Assets Uploading",
+        "devOnly": true
+    },
+    "3,2": {
+        "event": "Legion-wide Playtest 3",
+        "devOnly": true
+    },
+    "3,3": {
+        "event": "Send out Submission Form Questions",
+        "devOnly": true
+    },
+    "3,4": {
+        "event": "Legion-wide Playtest 4",
+        "devOnly": true
+    },
+    "3,5": {
+        "event": "Submission walkthrough",
+        "devOnly": true
+    },
+    "4,2": {
+        "event": "Legion-wide Playtest 5",
+        "devOnly": true
+    },
+    "4,4": {
+        "event": "Legion-wide Playtest 6",
+        "devOnly": true
+    }
+}
