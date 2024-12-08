@@ -1,0 +1,74 @@
+---
+title: Legion Council
+sidebar:
+  order: 20
+lists:
+  councilMembers:
+    - Team Leader
+    - T4+ Members
+  shandowMembers:
+    - T3 Members
+    - T2 Members
+  responsibilities:
+    - "Guide new members in legion"
+    - "Guide new team leaders in leading their team"
+    - name: "Provide announcements for Ignite cycle:"
+      children:
+        - "Submission Date"
+        - "Cycle Theme"
+        - "Legion War Playtest"
+    - name: "Provide annoucements for Legion:"
+      children:
+        - "Organize Pitch days"
+        - "Playtest (within legion) dates"
+    - "Coordinate introduction givers"
+    - "Determine team needs (i.e., roles needed for team)"
+    - "Create feedback threads"
+---
+import WhyNote from "@components/WhyNote.svelte";
+import MakeList from "@components/MakeList.svelte";
+
+## The Council
+
+Instead of one person leading a legion, we operate as a democratic council, with all members having a say in the direction of the legion.
+
+<WhyNote>
+  A legion leader can lead up to 12 teams and also be a leader of a team of up to 12 member. 
+  This make it difficult for one person to manage everything, especially if they are **volunteering**.
+
+  Having multiple people can help prevent one person from taking on all the responsibilities and bruning out in the process.
+</WhyNote>
+
+### Who is included
+
+Anyone who meets one of these criteria:
+
+<MakeList tag="ul" data={frontmatter.lists.councilMembers}/>
+
+
+<WhyNote>
+  Team leads are included so they can learn from other leaders and pass knowledge to rest of the team.
+
+  T4 member or higher are included as they have gone through the process multiple time, and so can give pointers to new members.
+</WhyNote>
+
+These members can shadow the process:
+
+<MakeList tag="ul" data={frontmatter.lists.shandowMembers}/>
+
+<WhyNote>
+  T2 and T3 members are starting to get a feel for the process, and this would be a good time to learn what being part of the concil entails.
+</WhyNote>
+
+## Responsibilities
+
+At minimum, the concil should decide on how to delegate the following responsibilities:
+
+<MakeList tag="ul" data={frontmatter.lists.responsibilities}/>
+
+### Legion Commander
+
+There will only be exactly one legion commander. 
+They may take any of the above responsibilities, but they are mainly to serve as the point person for the Ignite Host to the legion.
+
+Legion Commander is elected by a simple majority vote from all members within the legion.
