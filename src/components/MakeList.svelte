@@ -8,8 +8,9 @@
         list = "disc",
         position = "inside",
         level = 0,
+        rawHTML = false,
         data,
-    }: ListProps & { data: any[]; level: number } = $props();
+    }: ListProps & { data: any[]; level: number; rawHTML?: boolean } = $props();
 </script>
 
 <!-- Use style instead of regular Tailwind classes because can't gaurentee that Tailwind will pick this up -->
@@ -22,12 +23,17 @@
     {#each data as item}
         {#if typeof item === "object" && !Array.isArray(item) && item !== null}
             {#if item.name}
-                <Li
-                    >{item.name}
+                <Li>
+                    {#if rawHTML}
+                        {@html item.name}
+                    {:else}
+                        {item.name}
+                    {/if}
                     {#if item.children}
                         <Self
                             {tag}
                             {list}
+                            {rawHTML}
                             data={item.children}
                             level={level + 1}
                         />
@@ -35,7 +41,13 @@
                 </Li>
             {/if}
         {:else}
-            <Li>{item}</Li>
+            <Li>
+                {#if rawHTML}
+                    {@html item}
+                {:else}
+                    {item}
+                {/if}
+            </Li>
         {/if}
     {/each}
 </List>
