@@ -1,0 +1,62 @@
+{
+  "0,3": {
+    "event": "Cycle Start",
+    "devOnly": false
+  },
+  "0,5": {
+    "event": "Practice Pitch",
+    "devOnly": false
+  },
+  "1,1": {
+    "event": "Pitch Day 1",
+    "devOnly": true
+  },
+  "1,2": {
+    "event": "Pitch Day 2",
+    "devOnly": true
+  },
+  "1,5": {
+    "event": "Legion War Playtest 1",
+    "devOnly": true
+  },
+  "2,3": {
+    "event": "Legion War Playtest 2",
+    "devOnly": true
+  },
+  "3,3": {
+    "event": "Legion War Playtest 3",
+    "devOnly": true
+  },
+  "4,3": {
+    "event": "Legion War Playtest 4",
+    "devOnly": true
+  },
+  "-2,1": {
+    "event": "Submission Deadline",
+    "devOnly": false
+  },
+  "-2,2": {
+    "event": "Team Recognition & Evaluation",
+    "devOnly": false
+  },
+  "-2,3": {
+    "event": "Community Playtest & Voting Starts",
+    "devOnly": false
+  },
+  "-2,4": {
+    "event": "Team Split & Currency Reset",
+    "devOnly": false
+  },
+  "-2,5": {
+    "event": "Finalize Teams for next cycle",
+    "devOnly": false
+  },
+  "-2,6": {
+    "event": "Senate Meeting for Game Judging",
+    "devOnly": false
+  },
+  "-1,2": {
+    "event": "Team Retro-spective",
+    "devOnly": false
+  }
+}

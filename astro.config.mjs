@@ -48,6 +48,7 @@ export default defineConfig({
     resolve: {
       alias: {
         '@components': resolve('./src/components'),
+        '@data': resolve('./src/data'),
       },
     },
   },
