@@ -6,22 +6,28 @@
         date,
         events,
         isCurrent = true,
+        highlightToday = true,
     }: {
         id: string;
         date: Date;
         events: string;
         isCurrent: boolean;
+        highlightToday: boolean;
     } = $props();
 
     const userLocale =
         navigator.languages && navigator.languages.length
             ? navigator.languages[0]
             : navigator.language;
+    const today = new Date();
 </script>
 
 <div
     {id}
-    class=" border-primary-600 border-2 min-h-32 hover:text-lg rounded-xl p-1"
+    class=" border-primary-600 border-2 min-h-32 hover:text-lg rounded-xl p-1 {highlightToday &&
+    today.toDateString() === date.toDateString()
+        ? 'bg-emerald-400'
+        : ''}"
 >
     {#if !isCurrent}
         <div class="p-1">Outside Current Cycle</div>
