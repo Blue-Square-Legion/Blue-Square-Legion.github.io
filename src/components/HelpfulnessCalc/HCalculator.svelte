@@ -133,7 +133,7 @@
             >
         </ButtonGroup>
         <Helper class="text-sm mt-2"
-            ><Span>Helpfulness is in (1000 increments)</Span></Helper
+            ><Span>Helpfulness is in 1000 increments</Span></Helper
         >
         <datalist id="helpfulness-need-options">
             <option value="120">120</option>
@@ -172,7 +172,7 @@
             >
         </ButtonGroup>
         <Helper class="text-sm mt-2"
-            ><Span>Helpfulness is in (1000 increments)</Span></Helper
+            ><Span>Helpfulness is in 1000 increments</Span></Helper
         >
     </div>
     <Progressbar
@@ -198,7 +198,7 @@
 <section id="teams-size-calculator">
     <details>
         <summary
-            >Advanced Team Counter (number of teams: {teamsInLegion})</summary
+            >Advanced Team Settings (number of teams: {teamsInLegion})</summary
         >
         <Label for="team-count" class="text-primary-500 underline text-lg"
             >Teams in Legion: {teamsInLegion}</Label
