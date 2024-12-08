@@ -1,13 +1,15 @@
 ---
 title: P1 Guides
+sidebar:
+  order: 1
 articleGuides:
-    - name: Main Link
+    - name: Main Page
       link: https://articles.p1games.com
     - name: Creating a Team
       link: https://articles.p1games.com/normal-operations/creating-your-own-team
-    - name: Shadow Teams
+    - name: B-Teams
       link: https://articles.p1games.com/advanced/shadow-teams
-    - name: Registration
+    - name: Individual and Team Registration
       link: https://articles.p1games.com/introduction/individual-team-registration
       permalink: https://p1oc.net/igniteregister
     - name: Contest Guidelines
@@ -23,18 +25,16 @@ articleGuides:
     - name: Team Daily Checklist
       link: https://articles.p1games.com/normal-operations/team-registration-next-steps-guide
       permalink: https://p1oc.net/nextsteps
+    - name: Legion Daily Checklist
+      link: https://articles.p1games.com/daily-meetings-type-two/legion-daily-checklist
     - name: Introduction Giver Checklist
       link: https://articles.p1games.com/volunteers/onboarding-checklist
     - name: Integration Checklist
       link: https://articles.p1games.com/volunteers/integration-checklist
-    - name: Legion Daily Checklist
-      link: https://articles.p1games.com/daily-meetings-type-two/legion-daily-checklist
-    - name: Main Link
-      link: https://articles.p1games.com
 ---
 
-Link to articles for P1 Games Ignite
-<ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+## Links to [articles for P1 Games Ignite](https://articles.p1games.com)
+<ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400 mt-2">
     {frontmatter.articleGuides.map(guide => 
         <li> 
             <strong>{guide.permalink ? <a href={guide.permalink}> {guide.name}</a>: guide.name}</strong>: <a href={guide.link}>{guide.link}</a>
