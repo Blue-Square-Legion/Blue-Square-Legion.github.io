@@ -12,7 +12,7 @@
         date: Date;
         events: string;
         isCurrent: boolean;
-        highlightToday: boolean;
+        highlightToday?: boolean;
     } = $props();
 
     const userLocale =
