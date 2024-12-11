@@ -460,3 +460,68 @@ export const teamPhase = new TeamPhase();
 export const rolesNeeded = new RolesNeed();
 export const teamTool = new TeamToolCollector();
 export const roleSelectionCount = $state(new RoleCounter());
+
+export const MAX_MEETING_AMOUNT = 5;
+
+export class MeetingInfo {
+  onMon: boolean = $state(false);
+  onTue: boolean = $state(false);
+  onWed: boolean = $state(false);
+  onThu: boolean = $state(false);
+  onFri: boolean = $state(false);
+  startTime: string = $state("12:30");
+  startHour?: number = $state(0);
+  startMinute?: number = $state(0);
+  endHour?: number = $state(0);
+  endMinute?: number = $state(0);
+  duration?: number = $state(0);
+
+  constructor() {}
+
+  get meetingDays(): string[] {
+      const days = [
+          this.onMon && "Mon.",
+          this.onTue && "Tue.",
+          this.onWed && "Wed.",
+          this.onThu && "Thu.",
+          this.onFri && "Fri.",
+      ];
+      return days.filter((d) => d !== false);
+  }
+
+  get meetingStartTimeStamp(): string {
+    const d = new Date();
+    var converted = new Date(d.toString().split(":")[0]!.slice(0,-2) + this.startTime);
+    return `<t:${Math.floor(converted.getTime()/1000)}:t>`;
+  }
+}
+
+export class MeetingsArray {
+  #capacity = 0;
+  #size = $state(1);
+  meetings: MeetingInfo[] = $state([]);
+
+  constructor(size: number = MAX_MEETING_AMOUNT){
+    this.#capacity = size;
+    this.meetings = Array(this.#capacity)
+                .fill(0)
+                .map((_) => new MeetingInfo());
+  }
+
+  get length(): number{
+    return this.#size
+  }
+
+  set size(value: number){
+    this.#size = Math.min(Math.max(value,0), this.#capacity)
+  }
+
+  meetingsText(daySep: string = "/", timeSep:string ="@", meetingSep: string = "\n"): string{
+    console.log(this.#size, this.meetings.filter((m, i) => i < this.#size));
+    return this.meetings.filter((m, i) => i < this.#size && m.meetingDays.length > 0).map(
+      (m) => `${m.meetingDays.join(daySep)}${timeSep}${m.meetingStartTimeStamp}`,
+  ).join(meetingSep)
+  }
+}
+
+export const meetingsList = new MeetingsArray();
