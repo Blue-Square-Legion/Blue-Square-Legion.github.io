@@ -21,7 +21,8 @@
                         <Checkbox
                             custom
                             {checked}
-                            onclick="{() => teamTool.toolsUsedToggle(tool)}"
+                            class="mt-4"
+                            onclick={() => teamTool.toolsUsedToggle(tool)}
                         >
                             <div
                                 class="font-normal p-5 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-primary-400 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -37,9 +38,11 @@
 </Label>
 
 <Label class="space-y-2 text-primary-500">
-    <span>Additional Tools not listed above your team uses:</span>
+    <span
+        >Additional Tools not listed above your team uses (each on a new line):</span
+    >
     <Textarea
         placeholder="List of additional tools (place each on new lines)"
-        bind:value="{teamTool.additionalTools}"
+        bind:value={teamTool.additionalTools}
     />
 </Label>

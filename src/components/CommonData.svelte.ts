@@ -27,43 +27,47 @@ const gameEngines = [
   "Unity",
   "Godot",
   "Unreal Engine",
-  "Construct",
+  "RPG Maker",
+  "AppGameKit",
+  "Adventure Game Studio",
   "Clickteam Fusion",
+  "Construct 3",
   "CryENGINE",
+  "GDevelop",
   "Open3DEngine",
-  "AppGameKit"
+  "PICO-8",
 ];
 
 const programmingLanguages = [
-  "Construct 3",
-  "Adventure Game Studio",
-  "RPG Maker",
-  "PICO-8",
-  "GDevelop",
-  "Python",
-  "Lua",
   "C#",
+  "C++",
+  "GDScript",
+  "C",
   "Java",
-  "C++"
+  "JavaScript",
+  "Lua",
+  "Python",
+  "Rust",
+  "TypeScript",
 ];
 
 const audioDesignTools = [
+  "Wwise",
+  "FMOD Studio",
   "Ableton Live",
+  "Adobe Audition",
+  "Audacity",
   "Pro Tools",
   "FL Studio",
   "Logic Pro X",
   "GarageBand",
-  "Audacity",
   "Reaper",
   "Cubase",
   "Nuendo",
   "Sibelius",
-  "Adobe Audition",
   "Sound Forge",
   "Reason",
   "Cakewalk by BandLab",
-  "Wwise",
-  "FMOD Studio",
   "Renoise",
   "EastWest Quantum Leap",
   "Native Instruments Komplete"
@@ -73,7 +77,6 @@ const threeDArtTools = [
   "Blender",
   "Maya",
   "Houdini",
-  "Photoshop",
   "Substance Painter",
   "Substance Designer",
   "ZBrush",
@@ -120,7 +123,11 @@ const animationSpecificTools = [
 
 
 const projectManagementTools = [
+  "GitHub",
+  "Miro",
   "Trello",
+  "GitLab",
+  "Notion",
   "Jira",
   "ClickUp",
   "Asana",
@@ -128,8 +135,6 @@ const projectManagementTools = [
   "Basecamp",
   "Smartsheet",
   "Wrike",
-  "Notion",
-  "Miro",
   "Microsoft Project",
   "Confluence",
   "Redmine",
@@ -139,17 +144,12 @@ const projectManagementTools = [
   "ProofHub",
   "MeisterTask",
   "Airtable",
-  "GitHub",
-  "GitLab",
   "Bitbucket",
   "Perforce Helix Core",
   "SVN (Apache Subversion)",
   "Assembla",
   "Plastic SCM",
-  "Unity Collaborate"
-];
-
-const miscellaneousTools = [
+  "Unity Collaborate",
   "Google Drive",
   "TeamViewer",
   "Parsec"
@@ -159,25 +159,29 @@ const miscellaneousTools = [
 export const TOOLS = {
   "Game Engines": new Set([
     "Unity",
-    "Unreal",
     "Godot",
-    "Construct",
-    "Clickteam Fusion",
-    "CryENGINE",
-    "Open3DEngine",
+    "Unreal Engine",
+    "RPG Maker",
     "AppGameKit",
+    "Adventure Game Studio",
+    "Clickteam Fusion",
+    "Construct 3",
+    "CryENGINE",
+    "GDevelop",
+    "Open3DEngine",
+    "PICO-8",
   ]),
   "Programming Languages": new Set([
-    "Construct 3",
-    "Adventure Game Studio",
-    "RPG Maker",
-    "PICO-8",
-    "GDevelop",
-    "Python",
-    "Lua",
     "C#",
+    "C++",
+    "GDScript",
+    "C",
     "Java",
-    "C++"
+    "JavaScript",
+    "Lua",
+    "Python",
+    "Rust",
+    "TypeScript",
   ]),
   "Audio Design Tools": new Set([
     "Ableton Live",
@@ -204,7 +208,6 @@ export const TOOLS = {
     "Blender",
     "Maya",
     "Houdini",
-    "Photoshop",
     "Substance Painter",
     "Substance Designer",
     "ZBrush",
@@ -239,26 +242,6 @@ export const TOOLS = {
     "Adobe Animate"
   ]),
   "Animation Tools": new Set([
-    "Photoshop",
-    "Substance Painter",
-    "Substance Designer",
-    "ZBrush",
-    "Adobe Illustrator",
-    "CorelDRAW",
-    "GIMP",
-    "Inkscape",
-    "Affinity Designer",
-    "SketchBook",
-    "Clip Studio Paint",
-    "Toon Boom Harmony",
-    "Moho (Anime Studio)",
-    "Dragonframe",
-    "Pencil2D",
-    "Spine",
-    "TVPaint Animation",
-    "Adobe Animate"
-  ]),
-  "Project Management Tools": new Set([
     "Blender (Animation)",
     "Maya (Animation)",
     "Houdini",
@@ -266,23 +249,49 @@ export const TOOLS = {
     "Adobe Character Animator",
     "Synfig Studio"
   ]),
-  "Miscellaneous Tools": new Set([
+  "Project Management Tools": new Set([
+    "GitHub",
+    "Miro",
+    "Trello",
+    "GitLab",
+    "Notion",
+    "Jira",
+    "ClickUp",
+    "Asana",
+    "Monday.com",
+    "Basecamp",
+    "Smartsheet",
+    "Wrike",
+    "Microsoft Project",
+    "Confluence",
+    "Redmine",
+    "GitHub Projects",
+    "Zoho Projects",
+    "TeamGantt",
+    "ProofHub",
+    "MeisterTask",
+    "Airtable",
+    "Bitbucket",
+    "Perforce Helix Core",
+    "SVN (Apache Subversion)",
+    "Assembla",
+    "Plastic SCM",
+    "Unity Collaborate",
     "Google Drive",
     "TeamViewer",
     "Parsec"
   ]),
-  
 } as const;
 
 
 // AI Assited tools separation end
 
-export const ALL_TOOLS = new Set(gameEngines.concat(programmingLanguages, audioDesignTools, threeDArtTools, twoDArtTools, animationSpecificTools, projectManagementTools, miscellaneousTools))
+export const ALL_TOOLS = new Set(gameEngines.concat(programmingLanguages, audioDesignTools, threeDArtTools, twoDArtTools, animationSpecificTools, projectManagementTools))
 
 const ROLE_TYPES = [
-  {name: "Producer (Scrum, Agile, Leadership)", tools: projectManagementTools.concat(miscellaneousTools)},
+  {name: "Producer (Scrum, Agile, Leadership)", tools: projectManagementTools},
   {name: "Artist (3D, 2D, UI, Technical, Procedural)", tools: twoDArtTools.concat( threeDArtTools)},
-  {name: "Marketer (SEO, Social Media, Content, Strategic)", tools: projectManagementTools.concat(miscellaneousTools)},
+  {name: "Marketer (SEO, Social Media, Content, Strategic)", tools: projectManagementTools},
   {name: "Sound Artist (Composition, Sound Effects, Foley, Mixing)", tools: audioDesignTools},
   {name: "Programmer (Gameplay, Engine, Tools, AI, Graphics)", tools: gameEngines.concat(programmingLanguages)},
   {name: "Animator (3D, 2D, Motion Capture, Rigging)", tools: animationSpecificTools},
@@ -353,13 +362,13 @@ class RolesNeed {
 
 // Using `as const` to force TypeScript to treat strings as literals
 export const ROLES = [
-  {name: "Producer", tools: projectManagementTools.concat(miscellaneousTools), subDisipline: ["Scrum Master", "Agile", "Leadership"] } ,
-  {name: "Marketer", tools: projectManagementTools.concat(miscellaneousTools), subDisipline: ["SEO", "Social Media", "Content", "Strategic"] } ,
-  {name: "Artist", tools: twoDArtTools.concat( threeDArtTools), subDisipline: ["3D", "2D", "UI", "Technical", "Procedural"] } ,
-  {name: "Sound Artist", tools: audioDesignTools, subDisipline: ["Composition", "Sound Effects", "Foley", "Mixing"] } ,
-  {name: "Programmer", tools: gameEngines.concat(programmingLanguages), subDisipline: ["Gameplay", "Engine", "Tools", "AI", "Graphics"] } ,
-  {name: "Animator", tools: animationSpecificTools, subDisipline: ["3D", "2D", "Motion Capture", "Rigging"] } ,
-  {name: "Designer", tools: projectManagementTools, subDisipline: ["Gameplay", "Level", "UX", "Narrative", "Systems"] } ,
+  {name: "Producer", tools: projectManagementTools, subDisipline: ["Scrum Master", "Agile", "Team Lead"] } ,
+  {name: "Marketer (SEO, Social Media, Content, Strategic)", tools: projectManagementTools, subDisipline: [] } ,
+  {name: "Artist", tools: twoDArtTools.concat( threeDArtTools), subDisipline: ["3D Artist", "2D Artist", "UI Artist", "Technical Artist", "Procedural Artist"] } ,
+  {name: "Sound Artist", tools: audioDesignTools, subDisipline: ["Music Composer", "Sound Effects/Foley Artist", "Audio Engineer"] } ,
+  {name: "Programmer", tools: gameEngines.concat(programmingLanguages), subDisipline: ["Gameplay Programmer", "Engine Programmer", "Tools Programmer", "AI Programmer", "Graphics Programmer"] } ,
+  {name: "Animator", tools: animationSpecificTools, subDisipline: ["3D Animator", "2D Animator", "Motion Capture Animator", "Animation Rigger"] } ,
+  {name: "Designer", tools: projectManagementTools, subDisipline: ["Gameplay Designer", "Level Designer", "UX Designer", "Narrative Designer", "Systems Designer"] } ,
 ] as const;
 
 export const ROLE_NAMES = ROLES.map(r => r.name);
@@ -371,7 +380,7 @@ export type AllRoleNameType = RoleNameType | SubRoleNameType;
 class TeamToolCollector{
   #toolsUsed: SvelteSet<string> = new SvelteSet();
   #additionalTools: SvelteSet<string> = new SvelteSet();
-  toolsNeeded: SvelteSet<string> = new SvelteSet();
+  toolsNeeded: SvelteMap<string, SvelteSet<string>> = new SvelteMap();
   
   set additionalTools(value: string){
     if(value){
@@ -389,11 +398,26 @@ class TeamToolCollector{
     return this.#toolsUsed.has(tool);
   }
 
+  get listOfToolsUsed(): Set<string> {
+    return this.#toolsUsed.union(this.#additionalTools);
+  }
+
   toolsUsedToggle(tool: string){
     // NOTE: if delete opetation is false,
     //       tool is not in toolsUsed,
     //       then add tool to it
     this.#toolsUsed.delete(tool) || this.#toolsUsed.add(tool)
+  } ;
+  
+  toolsNeedToggle(tool: string, role: string){
+    // If tool not yet added, add it now with empty set
+    if (!this.toolsNeeded.has(tool)){
+      this.toolsNeeded.set(tool, new SvelteSet());
+    }
+    // NOTE: if delete opetation is false,
+    //       role is not in toolsNeeded[tool],
+    //       then add role to it
+    this.toolsNeeded.get(tool)!.delete(role) || this.toolsNeeded.get(tool)!.add(role)
   } ;
 }
   
