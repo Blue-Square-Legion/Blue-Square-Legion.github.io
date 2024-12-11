@@ -1,15 +1,17 @@
 <script lang="ts">
-    import { Checkbox } from "flowbite-svelte";
+    import { Checkbox, Helper, Span } from "flowbite-svelte";
     import {
         teamPhase,
         teamTool,
         roleSelectionCount,
+        meetingsList,
     } from "./CommonData.svelte.ts";
     import CopyTextArea from "./CopyTextArea.svelte";
     import NeededRoleSelection from "./NeededRoleSelection.svelte";
     import ImportSeekingMemberPost from "./ImportSeekingMemberPost.svelte";
     import TeamInfo from "./TeamInfo.svelte";
     import TeamToolLister from "./TeamToolLister.svelte";
+    import MeetingSelector from "./MeetingSelector.svelte";
 
     // States
     let teamName = $state("");
@@ -19,7 +21,7 @@
     let specificMeetingTime = $state("");
     let teamPost = $state("");
     let timestamp = $state(Math.floor(Date.now() / 1000));
-    let isFancyText = $state(false);
+    let isFancyText = $state(true);
 
     // Derived Values
     let teamURL = $derived(
@@ -28,9 +30,14 @@
             : "**LINK TO VALID TEAM POST NEEDED**",
     );
     let meetingTime = $derived(
-        `${isFancyText ? "> " : ""}${generalMeetingTime}\n${specificMeetingTime}`,
+        `${isFancyText ? "> " : ""}${generalMeetingTime}\n${meetingsList.meetingsText() || specificMeetingTime}`,
     );
-    let toolsNeeded = $derived([...teamTool.toolsNeeded].join("\n"));
+    let toolsNeeded = $derived(
+        [...teamTool.toolsNeeded.entries()]
+            .filter(([_tool, roles]) => roles.size > 0)
+            .map(([tool, roles]) => `${tool} (${[...roles].join(", ")})`)
+            .join("\n"),
+    );
     let teamNameHeader = $derived(isFancyText ? `# ${teamName}` : "#");
     let goalStatement = $derived(
         `${isFancyText ? "> " : ""}${teamGoal || "-"}`,
@@ -105,6 +112,7 @@ ${formattedTimeStamp}
     bind:teamGoal
     bind:teamPost
 />
+
 <TeamInfo
     bind:teamName
     bind:projectName
@@ -113,10 +121,17 @@ ${formattedTimeStamp}
     bind:specificMeetingTime
     bind:teamPost
 />
+<MeetingSelector />
 <TeamToolLister />
 <NeededRoleSelection />
 <hr />
-<Checkbox bind:checked={isFancyText}>
+<Checkbox bind:checked={isFancyText} aria-describedby="helper-fancy-text">
     <span class="dark:text-slate-100 pl-2">Use alternative formatting</span>
 </Checkbox>
+<Helper id="helper-fancy-text" class="ps-6" style="margin-top:0.1rem;"
+    ><Span
+        >Alternative formatting modifies headings and adds extra formatting to
+        make key items stand out</Span
+    ></Helper
+>
 <CopyTextArea text={formattedString} />
