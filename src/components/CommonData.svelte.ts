@@ -517,7 +517,6 @@ export class MeetingsArray {
   }
 
   meetingsText(daySep: string = "/", timeSep:string ="@", meetingSep: string = "\n"): string{
-    console.log(this.#size, this.meetings.filter((m, i) => i < this.#size));
     return this.meetings.filter((m, i) => i < this.#size && m.meetingDays.length > 0).map(
       (m) => `${m.meetingDays.join(daySep)}${timeSep}${m.meetingStartTimeStamp}`,
   ).join(meetingSep)
