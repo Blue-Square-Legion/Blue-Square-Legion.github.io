@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { Span } from "flowbite-svelte";
+    import { Button, Li, List, Popover, Span } from "flowbite-svelte";
+    import type { EventValue } from "../types";
 
     let {
         id,
@@ -10,7 +11,7 @@
     }: {
         id: string;
         date: Date;
-        events: string;
+        events: EventValue[];
         isCurrent: boolean;
         highlightToday?: boolean;
     } = $props();
@@ -29,17 +30,34 @@
         ? 'bg-emerald-400'
         : ''}"
 >
+    <Span class="text-md px-1"
+        >{date.toLocaleDateString(userLocale, {
+            day: "2-digit",
+            month: "2-digit",
+            year: "2-digit",
+        })}</Span
+    >
     {#if !isCurrent}
-        <div class="p-1">Outside Current Cycle</div>
+        <div class="p-1">
+            <span class="text-sm px-1">Outside Current Cycle</span>
+        </div>
     {:else}
-        <Span class="text-md px-1"
-            >{date.toLocaleDateString(userLocale, {
-                day: "2-digit",
-                month: "2-digit",
-                year: "2-digit",
-            })}</Span
-        >
-        <br />
-        <Span class="text-sm">{events}</Span>
+        {#each events as dayEvent, i}
+            <Button id="event-{id}-{i}" size="xs"
+                ><Span class="text-xs px-1">{dayEvent.name}</Span></Button
+            >
+            <Popover
+                class="w-64 text-sm font-light p-1"
+                title={dayEvent.name}
+                arrow={false}
+                triggeredBy="#event-{id}-{i}"
+            >
+                <List>
+                    {#each dayEvent.events as event}
+                        <Li><Span>{event}</Span></Li>
+                    {/each}
+                </List>
+            </Popover>
+        {/each}
     {/if}
 </div>
