@@ -1,10 +1,11 @@
 <script lang="ts">
-    import { Datepicker, Helper, Range } from "flowbite-svelte";
+    import { Checkbox, Datepicker, Helper, Range, Span } from "flowbite-svelte";
     import DayView from "./DayView.svelte";
     // @ts-ignore Not picking up Astro alias, so cannot find module, but it exists
     import igniteEventsData from "@data/igniteEvents.json";
     // @ts-ignore Not picking up Astro alias, so cannot find module, but it exists
     import legionEventsData from "@data/legionEvents.json";
+    import type { DayEvent, EventValue } from "../types";
     const DAYS_IN_WEEK = 7;
     const DAYS_OF_WEEK = [
         "Monday",
@@ -20,8 +21,10 @@
     const NUMBER_OF_NON_DEV_WEEKS = 3;
     const START_DAY_PARAM = "s";
     const DEV_WEEKS_PARAM = "d";
+    const LEGION_EVENTS_PARAM = "e";
     let selectedDate: Date = $state(new Date());
     let numberOfDevWeeks: number = $state(3);
+    let showLegionEvent: boolean = $state(false);
     const totalWeeks = $derived(numberOfDevWeeks + NUMBER_OF_NON_DEV_WEEKS);
     let startDay = $derived((selectedDate.getDay() - 1) % 7);
     function addDays(date: Date, days: number) {
@@ -33,16 +36,12 @@
     /**
      * Ignite event mapping of "week,day" to event(s) as string
      */
-    const igniteEvents = igniteEventsData as unknown as {
-        [pair: string]: { event: string; devOnly: boolean };
-    };
+    const igniteEvents = igniteEventsData as unknown as DayEvent;
 
     /**
      * Blue Square Legion event mapping of "week,day" to event(s) as string
      */
-    const bslEvents = legionEventsData as unknown as {
-        [pair: string]: { event: string; devOnly: boolean };
-    };
+    const bslEvents = legionEventsData as unknown as DayEvent;
 
     $effect(() => {
         // On Mount
@@ -62,6 +61,8 @@
             ),
             5,
         );
+
+        showLegionEvent = (urlParams.get(LEGION_EVENTS_PARAM) ?? "") !== "";
     });
 
     function getWeekDayOffset(
@@ -85,7 +86,8 @@
         week: number,
         day: number,
         isDev: boolean = true,
-    ): string {
+    ): EventValue[] {
+        const legionEvent = showLegionEvent ? bslEvents : {};
         // Fix off by one error due to JS starting on Sunday,
         // but our calendar starting on Monday
         day = (day + 1) % 7;
@@ -98,11 +100,11 @@
             [weekFromEnd, dayFromEnd],
         ]
             .flatMap(([w, d]) =>
-                [igniteEvents[`${w},${d}`], bslEvents[`${w},${d}`]]
-                    .filter((e) => e && (!isDev ? !e.devOnly : true))
-                    .map((e) => e?.event),
+                [igniteEvents[`${w},${d}`], legionEvent[`${w},${d}`]].filter(
+                    (e) => e && (!isDev ? !e.devOnly : true),
+                ),
             )
-            .join(", ");
+            .filter((e) => e !== undefined);
     }
 
     function isCurrentCycle(week: number, day: number) {
@@ -159,7 +161,12 @@
 
 <h2>Calendar</h2>
 <!-- Plus one for header -->
-<div class=" grid grid-rows-{totalWeeks + 1}">
+<section class="flex">
+    <Checkbox bind:checked={showLegionEvent}
+        ><Span class="px-2">Show Blue Square Legion Events</Span></Checkbox
+    >
+</section>
+<div class=" grid grid-rows-{totalWeeks + 1} overflow-x-auto">
     <div class="grid grid-cols-8 justify-center">
         <div class="text-primary-400"><em>Week #</em></div>
         {#each DAYS_OF_WEEK as day}
