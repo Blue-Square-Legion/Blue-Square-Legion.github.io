@@ -56,6 +56,22 @@
     />
 </Label>
 <PhaseFinder />
+<Label
+    class="space-y-2 text-primary-500 {validateDiscordURL(teamPost)
+        ? 'text-green-300'
+        : 'text-red-500'}"
+>
+    <span>
+        {validateDiscordURL(teamPost) ? "✅" : "❌"}
+        Team Link (on Discord)
+    </span>
+    <Input
+        type="url"
+        placeholder="Link to your team post from Discord"
+        size="md"
+        bind:value={teamPost}
+    />
+</Label>
 <Label class="space-y-2 text-primary-500">
     <span>Meeting Time</span>
     <Input
@@ -79,20 +95,4 @@
         Use <a href="https://hammertime.cyou">HammerTime</a> to get automatic time
         conversion on Discord
     </Helper>
-</Label>
-<Label
-    class="space-y-2 text-primary-500 {validateDiscordURL(teamPost)
-        ? 'text-green-300'
-        : 'text-red-500'}"
->
-    <span>
-        {validateDiscordURL(teamPost) ? "✅" : "❌"}
-        Team Link (on Discord)
-    </span>
-    <Input
-        type="url"
-        placeholder="Link to your team post from Discord"
-        size="md"
-        bind:value={teamPost}
-    />
 </Label>
