@@ -518,7 +518,7 @@ export class MeetingsArray {
 
   meetingsText(daySep: string = "/", timeSep:string ="@", meetingSep: string = "\n"): string{
     return this.meetings.filter((m, i) => i < this.#size && m.meetingDays.length > 0).map(
-      (m) => `${m.meetingDays.join(daySep)}${timeSep}${m.meetingStartTimeStamp}`,
+      (m) => `${m.meetingDays.join(daySep)}${timeSep}${m.meetingStartTimeStamp} (your local time)`,
   ).join(meetingSep)
   }
 }
