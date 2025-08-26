@@ -3,7 +3,7 @@ title: Welcome to Blue Square Legion
 description: We are Blue Square Legion
 template: splash
 hero:
-  tagline: Learn more about us
+  tagline: We are a collection of teams at P1 creating awesome games game.
   image:
     file: ../../assets/Blue_Square.png
   actions:
@@ -15,32 +15,120 @@ hero:
       link: https://github.com/Blue-Square-Legion
       icon: github
 
+projects:
+  - name: Keito
+    desc: 'Drop yarn balls from above and bounce them to the bored cats below to delight them with colorful yarn!'
+    link: 'https://sam325.itch.io/keito-game'
+    github: 'https://github.com/Blue-Square-Legion/Keito-Yarn-Game'
+    youtube: 'u9BvzhMSJbw'
+  - name: Eco Defender
+    desc: 'Harness the power of chemistry and plants to craft seed pods in your lab to protect the environment.'
+    link: 'https://light-with-blocks.itch.io/eco-defender'
+    github: 'https://github.com/Blue-Square-Legion/Eco-Defender'
+    youtube: 'pPVpIcnDh48'
+  - name: Frostblade Saga
+    desc: 'Wield the Frost, Extinguish the Flame of Corruption'
+    link: 'https://ivinzzzz.itch.io/frostblade-sagaz'
+    github: 'https://github.com/Blue-Square-Legion/Frostblade-Saga'
+    youtube: 'wLbphRjgVas'
+  - name: Roller Girl
+    desc: 'In a world where you can be anything... Be human'
+    link: 'https://polysplitter.itch.io/rollergirl'
+    github: 'https://github.com/Blue-Square-Legion/Roller-Girl'
+    youtube: 'HbZdXrZ6qN8'
+  - name: Runes vs Robots
+    desc: 'Defend your world with a variety of defenses while encountering evolving challenges in a fast-paced battle for survival'
+    link: 'https://chiferito.itch.io/project-tower'
+    github: 'https://github.com/Blue-Square-Legion/Tower'
+    youtube: 'xtQojBZCvm4'
+  - name: License Master
+    desc: 'Test your driving skills through a series of challenges. Will you ace the driving exams?'
+    link: 'https://mugwanezamanzi.itch.io/license-master'
+    github: 'https://github.com/Blue-Square-Legion/Pulse'
+    youtube: 'fIKVIjys9qY'
+  - name: "Food Jam: Attack of the Munchies"
+    desc: 'Battle against junk food, keep to the beat, and snack on success.'
+    link: 'https://jyama.itch.io/food-jam-attack-of-the-munchies'
+    github: 'https://github.com/Blue-Square-Legion/Munchies'
+    youtube: 'G_fvsXvxBck'
+  - name: Inside the Mind of Billy
+    desc: 'Using our imagination.'
+    link: 'https://wilsonbl.itch.io/inside-the-mind-of-billy'
+    github: 'https://github.com/Brandonwilz/Project-Unicorn'
+    image: 'https://img.itch.zone/aW1nLzE4MzA5NDIyLmpwZw==/original/6q31HB.jpg'
+  - name: Deep Dive
+    desc: 'Work on THE MACHINE by gathering THE PARTS, using sonar to figure where things are.'
+    link: 'https://teamnarwhal.itch.io/deep-dive'
+    github: 'https://github.com/Blue-Square-Legion/DeepDive'
+    image: 'https://img.itch.zone/aW1nLzE4MjcxOTY3LmpwZw==/347x500/9iOwFK.jpg'
+  - name: Ninja Cat
+    desc: 'Run fast, save the kittens, avoid the dogs'
+    link: 'https://wilsonbl.itch.io/ninja-cat-beta'
+    github: 'https://github.com/Brandonwilz/TeamUnicornPetAdventure'
+    image: "src/assets/Ninja-Cat-by-Kateryna-Zlobina.png"
+  - name: Sub-Surfers
+    desc: 'Surf your way to salvation!'
+    link: 'https://robertchaney.itch.io/sub-surfers'
+    github: 'https://github.com/Blue-Square-Legion/Sub-Surfers'
+  - name: Pet Parkour
+    desc: 'Can you wow the judges at the pet show?'
+    note: "Password for game page is 'teammesa'"
+    link: 'https://teammesa.itch.io/pet-parkour'
+    github: 'https://github.com/zareenmt/PetParkour'
+  - name: Orca Overboard
+    desc: 'Be an Orca, flip boats'
+    link: 'https://hellf1re.itch.io/sub-mariners'
+    github: 'https://github.com/Blue-Square-Legion/Orca-Overlord'
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
-
-## Who we are
-We are a collection of teams at P1 creating game.
+import { Card, CardGrid, LinkCard, Icon, LinkButton } from '@astrojs/starlight/components';
 
 ## Projects
 
 <CardGrid stagger>
-	<Card title="Keito" icon="information">
-	</Card>
-	<Card title="Eco Defender" icon="information">
-	</Card>
-	<Card title="Food Jam: Attack of the Munchies" icon="information">
-	</Card>
-	<Card title="Frostblade Saga" icon="information">
-	</Card>
-	<Card title="Roller Girl" icon="information">
-	</Card>
-	<Card title="Runes vs. Robots" icon="information">
-	</Card>
-	<Card title="Deep Dive" icon="information">
-	</Card>
-	<Card title="Sub-Surfers" icon="information">
-	</Card>
-	<Card title="Inside The Mind Of Billy" icon="information">
-	</Card>
+ {/*<Card title="TEST" icon="information">
+ <img src="./assets/Blue_Square.png"/>
+ <LinkCard title="Example" href="https://example.com" description="Go to example page" >
+ </LinkCard>
+ <Icon name="starlight" label="The Starlight logo" />
+<LinkButton
+  href="https://docs.astro.build"
+  variant="primary"
+  icon="external"
+  iconPlacement="start"
+>
+  Related: Astro
+</LinkButton>
+<LinkButton href="/getting-started/" variant="minimal">Get started</LinkButton>
+<LinkButton href="/reference/configuration/" variant="secondary">
+   R
+</LinkButton>
+ </Card>*/}
+ {frontmatter.projects.map(project => 
+ <Card title={project.name} icon="information">
+ {project.desc && <p>{project.desc}</p>}
+ {project.note && <p><em>{project.note}</em></p>}
+ {project.youtube && <iframe width="480" height="200" src={`https://www.youtube-nocookie.com/embed/${project.youtube}`} title={`Trailer for ${project.name}`} frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>}
+ {project.image && <img src={project.image} class="w-full self-stretch" width="480" height="150" />}
+ <div class="flex justify-around">
+ <LinkButton
+  href={project.link}
+  variant="primary"
+  icon="external"
+  iconPlacement="end"
+>
+  Game Link
+</LinkButton>
+ <LinkButton
+  href={project.github}
+  variant="secondary"
+  icon="github"
+  iconPlacement="end"
+>
+  GitHub
+</LinkButton>
+ </div>
+ </Card>
+ )}
+
 </CardGrid>
