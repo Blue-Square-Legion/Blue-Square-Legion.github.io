@@ -46,8 +46,9 @@
                         <li class="w-full">
                             <Checkbox
                                 class="mt-5 text-slate-900 dark:text-slate-100 p-2"
-                                bind:checked={meetingsList.meetings[meetingId]!
-                                    .onMon}
+                                bind:checked={
+                                    meetingsList.meetings[meetingId]!.onMon
+                                }
                             >
                                 <Span class="ps-1">Mon.</Span></Checkbox
                             >
@@ -56,8 +57,9 @@
                             <Checkbox
                                 inline
                                 class="mt-4 text-slate-900 dark:text-slate-100 p-2"
-                                bind:checked={meetingsList.meetings[meetingId]!
-                                    .onTue}
+                                bind:checked={
+                                    meetingsList.meetings[meetingId]!.onTue
+                                }
                             >
                                 <Span class="ps-1">Tue.</Span></Checkbox
                             >
@@ -65,8 +67,9 @@
                         <li class="w-full">
                             <Checkbox
                                 class="mt-4 text-slate-900 dark:text-slate-100 p-2"
-                                bind:checked={meetingsList.meetings[meetingId]!
-                                    .onWed}
+                                bind:checked={
+                                    meetingsList.meetings[meetingId]!.onWed
+                                }
                             >
                                 <Span class="ps-1">Wed.</Span></Checkbox
                             >
@@ -74,8 +77,9 @@
                         <li class="w-full">
                             <Checkbox
                                 class="mt-4 text-slate-900 dark:text-slate-100 p-2"
-                                bind:checked={meetingsList.meetings[meetingId]!
-                                    .onThu}
+                                bind:checked={
+                                    meetingsList.meetings[meetingId]!.onThu
+                                }
                             >
                                 <Span class="ps-1">Thu.</Span></Checkbox
                             >
@@ -83,8 +87,9 @@
                         <li class="w-full">
                             <Checkbox
                                 class="mt-4 text-slate-900 dark:text-slate-100 p-2"
-                                bind:checked={meetingsList.meetings[meetingId]!
-                                    .onFri}
+                                bind:checked={
+                                    meetingsList.meetings[meetingId]!.onFri
+                                }
                             >
                                 <Span class="ps-1">Fri.</Span></Checkbox
                             >
@@ -100,12 +105,13 @@
                             ><Span class="p-2">Start time</Span></InputAddon
                         >
                         <Input
-                            class="inline text-justify pb-0 pt-5 rounded-e-xl"
+                            class="inline text-justify rounded-e-xl"
                             id="time-selector-{meetingId}"
                             size="sm"
                             type="time"
-                            bind:value={meetingsList.meetings[meetingId]!
-                                .startTime}
+                            bind:value={
+                                meetingsList.meetings[meetingId]!.startTime
+                            }
                         />
                     </ButtonGroup>
                 </div>
